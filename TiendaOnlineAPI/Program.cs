@@ -12,7 +12,7 @@ builder.Services.AddDbContext<TiendaContext>(options =>
 var app = builder.Build();
 
 
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
     app.UseHsts();
