@@ -20,32 +20,33 @@ namespace TiendaOnlineAPI.Models
 
             base.OnModelCreating(modelBuilder);
         }
-        public class Categoria
-        {
-            public int CategoriaId { get; set; }
-            public string Nombre { get; set; }
-        }
-        public class Producto
-        {
-            public int ProductoId { get; set; }
-            public string Nombre { get; set; }
-            public string Descripcion { get; set; }
-            public decimal Precio { get; set; }
-            public string UrlImagen { get; set; }
+    }
+    public class Categoria
+    {
+        public int CategoriaId { get; set; }
+        public string Nombre { get; set; }
+    }
+    public class Producto
+    {
+        public int ProductoId { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public decimal Precio { get; set; }
+        public string UrlImagen { get; set; }
 
-            public int CategoriaId { get; set; }
-            public Categoria Categoria { get; set; }
-        }
-        public class Pedido
-        {
-            public int PedidoId { get; set; }
-            public DateTime FechaPedido { get; set; }
-            public string Cliente { get; set; }
+        public int CategoriaId { get; set; }
+        public Categoria Categoria { get; set; }
+    }
+    public class Pedido
+    {
+        public int PedidoId { get; set; }
+        public DateTime FechaPedido { get; set; }
+        public string Cliente { get; set; }
 
-            public ICollection<PedidoDetalle> Detalles { get; set; }
-        }
+        public ICollection<PedidoDetalle> Detalles { get; set; }
+    }
 
-public class PedidoDetalle
+    public class PedidoDetalle
     {
         [Key]
         public int PedidoDetalleId { get; set; }
@@ -59,7 +60,4 @@ public class PedidoDetalle
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
     }
-
-
-}
 }

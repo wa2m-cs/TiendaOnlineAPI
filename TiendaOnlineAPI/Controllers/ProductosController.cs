@@ -21,5 +21,17 @@ namespace TiendaOnlineAPI.Controllers
         {
             return await _context.Productos.Include(p => p.Categoria).ToListAsync();
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Producto>> GetProducto(int id)
+        {
+            var producto = await _context.Productos
+                .Include(p => p.Categoria)
+                .FirstOrDefaultAsync(p => p.ProductoId == id);
+            if (producto == null)
+            {
+                return NotFound();
+            }
+            return producto;
+        }
     }
 }
